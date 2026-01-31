@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zach & Ima | August 30, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fdfcfb 0%, #f5f0e8 50%, #e8e0d5 100%);
+            color: #3d3a36;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Subtle decorative elements */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+            animation: shimmer 15s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(2%, 2%) rotate(1deg); }
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Decorative line */
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .ornament-line {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .ornament-diamond {
+            width: 8px;
+            height: 8px;
+            background: #d4af37;
+            transform: rotate(45deg);
+        }
+
+        /* Names */
+        .names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            color: #2c2a27;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .names .ampersand {
+            font-style: italic;
+            color: #d4af37;
+            margin: 0 0.15em;
+            font-weight: 400;
+        }
+
+        /* Tagline */
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            font-style: italic;
+            font-weight: 300;
+            color: #8a8278;
+            letter-spacing: 0.15em;
+            text-transform: lowercase;
+            margin-bottom: 50px;
+        }
+
+        /* Date */
+        .wedding-date {
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: #6b645a;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: clamp(15px, 5vw, 40px);
+            margin-bottom: 50px;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 300;
+            color: #2c2a27;
+            line-height: 1;
+            min-width: 80px;
+            position: relative;
+        }
+
+        .countdown-value::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 1px;
+            background: #d4af37;
+        }
+
+        .countdown-label {
+            font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #8a8278;
+            margin-top: 18px;
+            font-weight: 400;
+        }
+
+        /* Venue */
+        .venue {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #6b645a;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .location {
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #a09a90;
+            font-weight: 400;
+        }
+
+        /* Bottom ornament */
+        .ornament-bottom {
+            margin-top: 50px;
+        }
+
+        /* Rings icon */
+        .rings {
+            font-size: 1.5rem;
+            color: #d4af37;
+            opacity: 0.7;
+        }
+
+        /* Animation for countdown values */
+        .countdown-value {
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover .countdown-value {
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .countdown {
+                flex-wrap: wrap;
+                gap: 25px 35px;
+            }
+            
+            .countdown-item {
+                flex: 0 0 calc(50% - 20px);
+            }
+
+            .ornament-line {
+                width: 50px;
+            }
+        }
+
+        /* Celebration mode when countdown reaches zero */
+        .celebration .names {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            50% { text-shadow: 0 0 40px rgba(212, 175, 55, 0.5); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top ornament -->
+        <div class="ornament">
+            <div class="ornament-line"></div>
+            <div class="ornament-diamond"></div>
+            <div class="ornament-line"></div>
+        </div>
+
+        <!-- Names -->
+        <h1 class="names">
+            Zach <span class="ampersand">&</span> Ima
+        </h1>
+
+        <!-- Tagline -->
+        <p class="tagline">are getting married</p>
+
+        <!-- Wedding Date -->
+        <p class="wedding-date">August 30, 2026</p>
+
+        <!-- Countdown -->
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days">000</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+
+        <!-- Venue -->
+        <p class="venue">Tappan Hill Mansion</p>
+        <p class="location">Tarrytown, New York</p>
+
+        <!-- Bottom ornament -->
+        <div class="ornament ornament-bottom">
+            <div class="ornament-line"></div>
+            <div class="rings">💍</div>
+            <div class="ornament-line"></div>
+        </div>
+    </div>
+
+    <script>
+        // Wedding date: August 30, 2026 at 4:00 PM EST (adjust time as needed)
+        const weddingDate = new Date('August 30, 2026 16:00:00 EST').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                // Wedding day has arrived!
+                document.querySelector('.container').classList.add('celebration');
+                document.getElementById('days').textContent = '0';
+                document.getElementById('hours').textContent = '0';
+                document.getElementById('minutes').textContent = '0';
+                document.getElementById('seconds').textContent = '0';
+                document.querySelector('.tagline').textContent = 'just married';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update immediately, then every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
