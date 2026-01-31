@@ -21,108 +21,118 @@
             align-items: center;
             justify-content: center;
             font-family: 'Josefin Sans', sans-serif;
-            background: #fffcf8;
+            background: #f7f3ed;
             color: #3d3a36;
-            padding: 40px 20px;
+            padding: 30px 20px;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.04) 0%, transparent 60%);
-            pointer-events: none;
         }
 
         .container {
             text-align: center;
             position: relative;
             z-index: 1;
-            max-width: 700px;
+            max-width: 500px;
             width: 100%;
+            background: #fffdf9;
+            border: 2px solid #c9a84c;
+            padding: 40px 30px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.08);
         }
 
-        .flourish {
-            margin-bottom: 40px;
-            opacity: 0.5;
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid #c9a84c;
+            pointer-events: none;
         }
 
-        .flourish svg {
-            width: 140px;
+        .photo-frame {
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto 35px;
+            position: relative;
+        }
+
+        .photo-frame img {
+            width: 100%;
             height: auto;
+            display: block;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         .names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 12vw, 5.5rem);
+            font-size: clamp(2rem, 8vw, 2.8rem);
             font-weight: 300;
-            font-style: italic;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.12em;
             color: #2c2a27;
-            margin-bottom: 8px;
-            line-height: 1.2;
-        }
-
-        .ampersand {
-            display: block;
-            font-size: 0.45em;
-            color: #c9a84c;
-            font-style: normal;
-            margin: 0;
-            letter-spacing: 0.2em;
-            font-family: 'Josefin Sans', sans-serif;
-            font-weight: 200;
-        }
-
-        .tagline {
-            font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-            font-weight: 300;
-            color: #a09a90;
-            letter-spacing: 0.45em;
+            margin-bottom: 6px;
             text-transform: uppercase;
-            margin-bottom: 50px;
         }
 
-        .divider {
-            width: 1px;
-            height: 70px;
-            background: linear-gradient(to bottom, transparent, #c9a84c, transparent);
-            margin: 0 auto 50px;
+        .names .ampersand {
+            color: #c9a84c;
+            margin: 0 0.1em;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+
+        .divider-line {
+            width: 50px;
+            height: 2px;
+            background: #c9a84c;
+            margin: 15px auto 20px;
+        }
+
+        .date-location {
+            font-size: clamp(0.6rem, 1.6vw, 0.72rem);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        .countdown-label-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-style: italic;
+            color: #8a8278;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
         }
 
         .countdown {
             display: flex;
             justify-content: center;
-            gap: clamp(25px, 7vw, 60px);
-            margin-bottom: 55px;
+            gap: clamp(15px, 5vw, 30px);
+            margin-bottom: 10px;
         }
 
         .countdown-item {
             text-align: center;
-            position: relative;
+            min-width: 55px;
         }
 
         .countdown-value {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 9vw, 4.5rem);
-            font-weight: 300;
+            font-size: clamp(2.2rem, 7vw, 3rem);
+            font-weight: 400;
             color: #2c2a27;
             line-height: 1;
-            transition: color 0.4s ease;
+            transition: color 0.3s ease;
         }
 
-        .countdown-label {
-            font-size: clamp(0.5rem, 1.1vw, 0.6rem);
-            letter-spacing: 0.35em;
+        .countdown-unit {
+            font-size: clamp(0.45rem, 1vw, 0.55rem);
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: #c4bdb2;
-            margin-top: 14px;
+            color: #b5aea3;
+            margin-top: 8px;
             font-weight: 300;
         }
 
@@ -130,47 +140,21 @@
             color: #c9a84c;
         }
 
-        .date {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.2rem, 3.5vw, 1.6rem);
-            font-style: italic;
-            color: #5a554c;
-            margin-bottom: 14px;
-            letter-spacing: 0.03em;
-        }
-
-        .location {
-            font-size: clamp(0.55rem, 1.3vw, 0.65rem);
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: #c4bdb2;
-            font-weight: 300;
-        }
-
-        .flourish-bottom {
-            margin-top: 55px;
-            opacity: 0.5;
-        }
-
-        .flourish-bottom svg {
-            width: 140px;
-            height: auto;
-            transform: rotate(180deg);
-        }
-
-        @media (max-width: 480px) {
-            .countdown {
-                flex-wrap: wrap;
-                gap: 30px 45px;
+        @media (max-width: 400px) {
+            .container {
+                padding: 30px 20px;
             }
             
-            .countdown-item {
-                flex: 0 0 calc(50% - 25px);
+            .photo-frame {
+                max-width: 220px;
             }
 
-            .divider {
-                height: 50px;
-                margin-bottom: 40px;
+            .countdown {
+                gap: 12px;
+            }
+
+            .countdown-item {
+                min-width: 45px;
             }
         }
 
@@ -186,54 +170,35 @@
 </head>
 <body>
     <div class="container">
-        <div class="flourish">
-            <svg viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-                <path d="M70 30 Q50 30 35 22 Q20 14 5 18" stroke="#c9a84c" stroke-width="0.75" fill="none" stroke-linecap="round"/>
-                <path d="M70 30 Q90 30 105 22 Q120 14 135 18" stroke="#c9a84c" stroke-width="0.75" fill="none" stroke-linecap="round"/>
-                <circle cx="70" cy="30" r="2.5" fill="#c9a84c"/>
-                <circle cx="70" cy="30" r="5" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
-            </svg>
+        <div class="photo-frame">
+            <img src="save-the-date.png" alt="Ima and Zachary">
         </div>
 
-        <h1 class="names">
-            Ima
-            <span class="ampersand">&</span>
-            Zachary
-        </h1>
+        <h1 class="names">Ima <span class="ampersand">&</span> Zachary</h1>
+        
+        <div class="divider-line"></div>
+        
+        <p class="date-location">August 30th, 2026 | Tarrytown, NY</p>
 
-        <p class="tagline">are getting married</p>
-
-        <div class="divider"></div>
+        <p class="countdown-label-main">Counting down to forever</p>
 
         <div class="countdown">
             <div class="countdown-item">
                 <div class="countdown-value" id="days">000</div>
-                <div class="countdown-label">Days</div>
+                <div class="countdown-unit">Days</div>
             </div>
             <div class="countdown-item">
                 <div class="countdown-value" id="hours">00</div>
-                <div class="countdown-label">Hours</div>
+                <div class="countdown-unit">Hours</div>
             </div>
             <div class="countdown-item">
                 <div class="countdown-value" id="minutes">00</div>
-                <div class="countdown-label">Minutes</div>
+                <div class="countdown-unit">Min</div>
             </div>
             <div class="countdown-item">
                 <div class="countdown-value" id="seconds">00</div>
-                <div class="countdown-label">Seconds</div>
+                <div class="countdown-unit">Sec</div>
             </div>
-        </div>
-
-        <p class="date">August 30, 2026</p>
-        <p class="location">Tarrytown, New York</p>
-
-        <div class="flourish-bottom">
-            <svg viewBox="0 0 140 35" xmlns="http://www.w3.org/2000/svg">
-                <path d="M70 30 Q50 30 35 22 Q20 14 5 18" stroke="#c9a84c" stroke-width="0.75" fill="none" stroke-linecap="round"/>
-                <path d="M70 30 Q90 30 105 22 Q120 14 135 18" stroke="#c9a84c" stroke-width="0.75" fill="none" stroke-linecap="round"/>
-                <circle cx="70" cy="30" r="2.5" fill="#c9a84c"/>
-                <circle cx="70" cy="30" r="5" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
-            </svg>
         </div>
     </div>
 
@@ -250,7 +215,7 @@
                 document.getElementById('hours').textContent = '0';
                 document.getElementById('minutes').textContent = '0';
                 document.getElementById('seconds').textContent = '0';
-                document.querySelector('.tagline').textContent = 'just married';
+                document.querySelector('.countdown-label-main').textContent = 'Just married!';
                 return;
             }
 
